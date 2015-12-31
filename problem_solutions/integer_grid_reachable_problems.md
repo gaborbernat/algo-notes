@@ -50,7 +50,7 @@ $$2x_d$$. So $$2x_d | m$$.
 So given a target point $$(x_t, y_t)$$, it is reachable if and only if both $$x_t$$ and $$y_t$$ is divisible
 by $$x_d$$ and $$y_d$$.
 
-If one of $$\frac{x_i + y_i}{x_d}$$ is odd, then we can get a more strong conclution that we can also reach
+If one of $$\frac{x_i + y_i}{x_d}$$ is odd, then we can get a more strong conclusion that we can also reach
 $$(x_d, 0)$$ instead of $$(2x_d, 0)$$. because of $$(x_i + y_i) / x_d$$ is odd, we can conclude either
 $$x_i / x_d$$ or $$y_i / x_d$$ is odd. Assume $$x_i / x_d$$ is odd. Then $$y_i / x_d$$ must be even.
 Then we go to $$(x_i, y_i)$$ first, then as $$y_i / x_d$$ is even, we can go from that point by $$(0, -2x_d)$$
