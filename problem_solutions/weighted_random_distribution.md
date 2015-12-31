@@ -11,7 +11,7 @@ to be chosen, then we just generate a random int $$i \in [0, N)$$ where $$N$$ is
 and use $$i$$ as the index to access the element in the array. This is called *uniform distribution*.
 
 But what if we'd like the elements have different likelihood to be chosen? That is weighted random
-distribution problem. Let's say we want the item with hight weight value more likely to be chosen
+distribution problem. Let's say we want the item with height weight value more likely to be chosen
 and the probability is a linear function of weight. In other words, if item A has weight $$1$$ and
 item B has weight $$2$$, then the item B is twice as likely to be chosen as item A. 
 
@@ -32,7 +32,7 @@ Based on different answers to these questions, the different solution is most su
 
 Let's talk about precision or number of decimal spaces of weight value. The first thing
 we need to do is to uniform all the value into integer. Why we need to do this?
-That is because our random number generated is ususally integer, if we'd like to use
+That is because our random number generated is usually integer, if we'd like to use
 this integer random value to pick element, we have to either translate the random number
 to decimal or translate the weight value into integer.
 
@@ -268,8 +268,8 @@ If adding and removing is often and picking is scarce, In-place(unsorted) might 
 It has constant time complexity for these two operation but picking is a little slow.
 
 If adding and picking is often and we scarcely removing items, the Pre-calculated solution is the best.
-Adding item cost contant time and picking item cost $$O(\log N)$$. Removing items in its worst case
+Adding item cost constant time and picking item cost $$O(\log N)$$. Removing items in its worst case
 may cost $$O(N)$$.
 
-The In-place(sorted) might not be a good solution. But the greedy strategy idea should be well learnt
+The In-place(sorted) might not be a good solution. But the greedy strategy idea should be well learned
 and keep in mind.
