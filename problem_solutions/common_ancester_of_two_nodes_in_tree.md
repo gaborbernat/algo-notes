@@ -1,6 +1,6 @@
-# Common Ancester of Two Nodes in Tree
+# Common Ancestor of Two Nodes in Tree
 
-Common Ancester of Tree is said to be a very common problem asked during an interview.
+Common Ancestor of Tree is said to be a very common problem asked during an interview.
 This problem is not a hard one, but there are still several points should be carefully
 handled. And the most important notice to remember is that, **DO NOT** assume the tree
 is a binary tree. Repeat, **DO NOT** assume the tree is a binary tree.
@@ -13,7 +13,7 @@ Then, if you are sure it is about binary tree, then the following is related not
 
 ## Binary tree
 
-The tree to find common ancester in is a binary tree, and let's say we have two nodes and
+The tree to find common ancestor in is a binary tree, and let's say we have two nodes and
 these two nodes are guaranteed exist in the tree (This is one point that you should make
 it certain before answering).
 
@@ -34,7 +34,7 @@ exactly once recursively and find a node follows the conditions below or vice ve
 1. the node A is in the left sub tree of this node
 2. the node B is in the right sub tree of this node
 
-Note, both A and B might be the common ancester too. So a simple program to solve the
+Note, both A and B might be the common ancestor too. So a simple program to solve the
 problem might be:
 
 ```java
@@ -53,7 +53,7 @@ TreeNode findCommonAncester(TreeNode root, TreeNode a, TreeNode b) {
 
 There is a problem with the code above that if one of a or b is not in the tree and
 the function returns a or b, we can not make sure if the node is really the common
-ancester(and the other node is in the children tree of this node) or the other node
+ancestor(and the other node is in the children tree of this node) or the other node
 is not in the tree.
 
 This problem is not easy to solve under Java which can not return multiple return value.
@@ -62,7 +62,7 @@ before running the algorithm above. It keeps the same time complexity for algori
 but might be much slower in practical.
 
 The following code uses a structure as the return value of the function to get the
-common ancester of two nodes while nodes might not be in the tree.
+common ancestor of two nodes while nodes might not be in the tree.
 
 ```java
 class Res{
@@ -107,7 +107,7 @@ stack overflow.
 ## Multiple children
 
 If the tree is not a binary tree, the problem must be upgrade. Here we only discuss
-the case that both two nodes to find ancester are exist in the tree. At first we
+the case that both two nodes to find ancestor are exist in the tree. At first we
 must change the data structure of the TreeNode.
 
 ```java
@@ -117,8 +117,8 @@ class TreeNode {
 }
 ```
 
-The program to find the common ancester doesn't change a lot from the binary tree's program.
-A node is the first common ancester if and only if the two node are in different child tree of this node.
+The program to find the common ancestor doesn't change a lot from the binary tree's program.
+A node is the first common ancestor if and only if the two node are in different child tree of this node.
 
 ```java
 TreeNode findCommonAncester(TreeNode root, TreeNode a, TreeNode b) {
@@ -143,9 +143,9 @@ to stack overflow error too.
 ## Node has pointer to parent
 
 If the Node has a pointer to parent or we can easily get the path from root to the two nodes,
-there is another way to find the most common ancester. At first we get two path from root
+there is another way to find the most common ancestor. At first we get two path from root
 to node a and b. Then we check from the root one by one parallel until at some position,
-two nodes are different. The first common ancester stands exactly one step before that position.
+two nodes are different. The first common ancestor stands exactly one step before that position.
 
 We implemented this using a `LinkedList` in java:
 
@@ -181,7 +181,7 @@ The program above should be able to handle both binary tree or tree has multiple
 when both two nodes present in the tree, but also when one or more are not exist.
 
 This problem is usually better than the older one when the parent pointer presents. We can also
-get all ancesters easily. The time complexity is $$O(\log N)$$ where $$N$$ is the number of nodes.
+get all ancestors easily. The time complexity is $$O(\log N)$$ where $$N$$ is the number of nodes.
 Compared the recursive solution, this solution is obviously faster and not vulnerable to stack
 overflow error. But it requires the `TreeNode` has an extra field. If this field is originally exist,
 that is good, or it might not be suitable. The space complexity is $$O(\log N)$$.
