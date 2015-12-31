@@ -4,7 +4,7 @@ Select several items from a collection by random or shuffle a sorted array are b
 a kind of problem called Sampling Problem. There are several methods to handle this kind of problems,
 each have different time cost and space cost.
 
-As we all know, most computer systems can only generate pseudorandom numbers, in this chapter we
+As we all know, most computer systems can only generate pseudo-random numbers, in this chapter we
 ignore this problem and assume the system call returns uniform random numbers.
 The sample codes are all in Python and we will use Python's `random` package to provide
 all functions needed.
@@ -60,8 +60,7 @@ $$O(n)$$ and it also has a space cost of $$O(n)$$.
 ### Using a set
 
 We use a `set` to maintain the items that has already been chosen, and only insert an item
-if it is not in the set. Every time we generate a random number between $$0$$ and $$n$$ and do this repeatly until
-we get enough elements. An example implementation:
+if it is not in the set. Every time we generate a random number between $$0$$ and $$n$$ and do this repeatedly until we get enough elements. An example implementation:
 
 ```python
 import random
@@ -75,7 +74,7 @@ while len(S) < m:
 
 This method can terminated fast if $$m$$ is much less than $$n$$. The time cost will be much
 if $$m$$ is quite near to $$n$$. In the worst case, this algorithm even won't terminated and the worst
-case will actually happen on some type of machines as the pseudorandom numbers generated are not
+case will actually happen on some type of machines as the pseudo-random numbers generated are not
 really uniform.
 
 
@@ -83,7 +82,7 @@ really uniform.
 ### Using set without discard random numbers
 
 There is a method to choose items with `set` without discarding random numbers generated.
-This reduces the time complexity of algorithm. At the end of each interation, the algorithm
+This reduces the time complexity of algorithm. At the end of each iteration, the algorithm
 always insert an item into the set. If the current item has already in the set, it will insert
 current iteration index.
 
@@ -101,13 +100,13 @@ for i in range(n - m + 1, n + 1):
         s.add(i)
 ```
 
-The analysis of the time cost depends on the implementation of the `set` datastructure. As we know, 
+The analysis of the time cost depends on the implementation of the `set` data structure. As we know, 
 hash table's average search time is quite good, but in the worst case it will degraded to linear time.
 A balanced tree can guarantee a time complexity of $$O(n)$$. Generally speaking, the time cost of
 this method will be worse than $$O(m)$$, but it will be quite near.
 
 This algorithm is named Floyd Algorithm.
-A more detailed discussion of this algorithm will take place at secition **Floyd Algorithm** below.
+A more detailed discussion of this algorithm will take place at section **Floyd Algorithm** below.
 
 ### Pick an item from a list with unknown length
 
@@ -159,7 +158,7 @@ for i, l in enumerate(f.readlines(), 1):
             selected[r] = l
 ```
 
-To prove this solution is correct, let's apply mathematic induction. Assume at the $$i$$th line
+To prove this solution is correct, let's apply mathematics induction. Assume at the $$i$$th line
 this solution is correct. That is for each line numbered from $$0$$ to $$i - 1$$ is chosen
 with a probability of $$\frac{k}{i}$$. Then here come the $$(i + 1)$$th line. It is obviously
 we will pick this line by a probability of $$\frac{k}{i + 1}$$. Then for each current chosen lines,
@@ -174,7 +173,7 @@ will become:
 {% endmath %}
 
 That is, after the $$(i + 1)$$th line is processed, every line has a probability of $$\frac{1}{i + 1}$$
-to be left in the chosen set. Thus the solution is correct that at last every line has the same likelyhood
+to be left in the chosen set. Thus the solution is correct that at last every line has the same likelihood
 to be chosen.
 
 For more details about reservoir sampling algorithm please refer to
@@ -226,7 +225,7 @@ a larger collection. There are also a set of shuffling or arrangements problem w
 The difference between a combination and a arrangement is that for a combination, the order
 of the elements does not matter.
 
-Apart from the shuffling algorithm mentioned below, there are also a method derived from that recursion verion
+Apart from the shuffling algorithm mentioned below, there are also a method derived from that recursion version
 of Floyd algorithm. To achieve this, we just need replace the `set` with `list` and modify the insert operation
 a little.
 
@@ -247,7 +246,7 @@ for i in range(n - m + 1, n + 1):
 
 The proof of Floyd algorithm in fact comes from the last method for generate arrangements.
 It is based on the observation that for any arrangements generated, there are only one
-random number sequence to generate it, so the algorithm can be backstepped. And if we assume
+random number sequence to generate it, so the algorithm can be back-stepped. And if we assume
 every sequence of random numbers has equal probability to present, then every arrangements
 are generated with the same likelihood.
 
@@ -259,4 +258,3 @@ algorithms contains exactly the same items.
 2. For any combinations of $$n$$ items, the number of arrangements of them are all $$n!$$.
 3. So if the arrangement generation algorithm is correct, then the combination generation
 algorithm is correct too.
-
