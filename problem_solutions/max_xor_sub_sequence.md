@@ -33,7 +33,7 @@ To iterate each `j < i` won't reduce the time cost. We can turn to a constructio
 Say `R[i] = R[0..i]`, from the highest bit of `R[i]`, if it is a `0`, we try to find
 a set of `R[j]` where `j < i` that `R[j] ^ R[i]` has an 1 at that position. Conversely,
 it is a `1`, we find a set let the `1` to be left. After this, we check the second highest bit
-and find sub set from the set from last iteration. We aways add `0` in the set to enable
+and find sub set from the set from last iteration. We always add `0` in the set to enable
 to find a way to let `R[i]` to be itself left. Time cost of this algorithm is $$O(N\log N)$$
 as query a Trie has a time cost of $$O(\log N)$$.
 
@@ -59,7 +59,7 @@ From higher bits to lower bits there will be some bits are the same in `x` and `
 any integer between `x` and `y` will have the same prefix. Then at the first bit that is different,
 as `y` is greater than `x`, thus there must be a `1` at that position of `y` and `0` of `x`.
 
-And we know, if we drop the common prefix and only consider bits from that prosition,
+And we know, if we drop the common prefix and only consider bits from that position,
 `01111..1` must be greater than `x` and less than `y`. The same to `10000..0`. So let these two
 suffix perform `XOR`, we will get `11111..1`. Thus, the largest `XOR` result from two elements
 in the interval must in a form like `0..000111..1` and `1` begins at the highest different bits
