@@ -42,7 +42,7 @@ it is possibly end at any node. Often, the value on the tree node may also be ne
 Then there is a question that, if all value on the tree is negative, should we give $$0$$,
 stands for empty path, or give the value of root as it will be the maximum sum.
 
-If you are faced with this question, remember that return the value of root is simplier.
+If you are faced with this question, remember that return the value of root is simpler.
 We can always return zero when the algorithm returns negative number. So at first we
 will come up with a problem that always return a value of node.
 
@@ -113,7 +113,7 @@ Sum maxPathSum(TreeNode root) {
 
 ## Path sum from any node to any node
 
-See this problem [on LeetCode](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
+For an in-depth description see this problem [on LeetCode](https://leetcode.com/problems/binary-tree-maximum-path-sum/).
 
 Now we comes to the ultimate problem of this kind, the path we get can start from any node
 and end at any node. As it is tree we are talking about, so any path on the tree has the following
@@ -167,15 +167,15 @@ class Solution {
 }
 ```
 
-What if the start and end nodes of the path is required to be find? It is a little diffculty, isn't it?
+What if the start and end nodes of the path is required to be find? It is a little difficulty, isn't it?
 But the reality is that you have to have the ability to solve this problem in 20 minutes to get a job
 at those top companies.
 
-Let's analyse this problem step by step. At first, the start and end node is obviously swappable,
+Let's analyze this problem step by step. At first, the start and end node is obviously swap-able,
 so we can always regard the left most node as the start and the right most as the end.
 The code above has already give us a solution of finding the value of maximum path sum,
-what we need to do is to find a we to keep the end of maxium single path sum. We will
-do this by combinating the global variable version with the `Sum` structure.
+what we need to do is to find a we to keep the end of maximum single path sum. We will
+do this by combining the global variable version with the `Sum` structure.
 
 ```java
 class Solution {
@@ -258,8 +258,8 @@ and keep working on!
 
 If the tree structure can be defined by yourself, you should could think of a solution
 to save the partial result in tree nodes. Even it is not allowed, we can always
-be able to relate some other data to nodes. Althought it will cost more space,
-but it is a tradeoff. Sense of tradeoff is one of things they'd like to exammine on you, remember it?
+be able to relate some other data to nodes. Although it will cost more space,
+but it is a trade-off. Sense of trade-off is one of things they'd like to examine on you, remember it?
 
 Let's say we can add one additional fields in the node. We use it to record the maximum partial sum
 from bottom to top that end at current node. So the tree node is looks like:
@@ -274,7 +274,7 @@ class TreeNode {
 }
 ```
 
-Take advatage of the thinking of maximum path sum. The code to get the path sum will be:
+Take advantage of the thinking of maximum path sum. The code to get the path sum will be:
 
 ```java
 int maximumSum(TreeNode root) {
@@ -296,11 +296,11 @@ int maximumSum(TreeNode root) {
 This problem always return 0 if a positive sum path can not be found. We performing
 recursive calls first to give the sum field the right value on root's left and right node.
 Then we retrieve the sum and find the max path sum ends at current node.
-The path may from the left or the right subtree. But the sum should definitely greater than 0.
-Then we also use the sum from to subtree to find the maxinum sum path through current node.
+The path may from the left or the right sub-tree. But the sum should definitely greater than 0.
+Then we also use the sum from to sub-tree to find the maximum sum path through current node.
 The function finally returns the greatest sum value among left max, right max and current max.
 
 What we should learn from this solution is that, don't limit your mind. You can do anything
 to the structures you are using and let it as convenient as possible to you!
-Don't care about the space cost first or take the tradeoff into consider and avoid to come up
+Don't care about the space cost first or take the trade-off into consider and avoid to come up
 with the best answer at the first glance at the problem.
