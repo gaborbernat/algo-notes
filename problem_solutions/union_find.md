@@ -4,10 +4,10 @@ Union find is a problem concerns about dynamic connectivity. Let's say there are
 numbered from $$0$$ to $$N - 1$$. We have to type of operations, `union` connects two sites,
 `find` get connected group or component one site belongs to. Two sites are connected if and only if the first site
 is connected to the second site or any other sites that is connected to the second site.
-All sites that belongs are connected to each other belongs to the same conneted component.
+All sites that belongs are connected to each other belongs to the same connected component.
 
 This is a quite common problem and it is equivalent to find if two nodes belongs to a same
-connected component in an undirected graph. We use the root node's id to represent a
+connected component in an not directed graph. We use the root node's id to represent a
 connected component.
 
 There are several ways to do this and these methods have different time cost and space cost.
@@ -16,7 +16,7 @@ There are several ways to do this and these methods have different time cost and
 
 Quick find lets find if two sites are connected extremely fast but will cost a lot to union
 two sites. In quick-find method, we change root of all of one component's sites to root of
-the other. So the union operation has a time complexity of $$O(N)$$ but `find` operaion
+the other. So the union operation has a time complexity of $$O(N)$$ but `find` operation
 cost $$O(1)$$ so that we can verify if two sites are belongs to one components in $$O(1)$$.
 
 ```java
@@ -59,7 +59,7 @@ be a cycle in the graph to find root, we have to check if the two sites we'd lik
 has already in the same components and return immediately doing nothing. Thus,
 in the worst case, the union operation still has a time complexity of $$O(N)$$
 and find operation has a time complexity of $$O(N)$$ too. Although it looks like
-this algorithm is quite bad, it is the start point to futher better solutions.
+this algorithm is quite bad, it is the start point to further better solutions.
 
 ```java
 public class QuickUnion {
@@ -144,7 +144,7 @@ public class WeightedQuickUnion {
 Having a worst time cost of $$O(\log N)$$, this solution is in fact quite satisfied.
 But there still a way to improve it and get a very near to constant time cost for both
 `union` and `find` method. The trick is during find, we immediately point parent of all sites
-visited in the path to the final root. If we start doing this at the begining, the tree
+visited in the path to the final root. If we start doing this at the beginning, the tree
 generated will be very flat and will cost much less when performing `find` operation,
 and thus the cost of `union` is reduced too. It has been proven that although this
 algorithm is not in constant time cost, it is already the best solutions to union-find
@@ -153,7 +153,7 @@ problem.
 To flatten the path, there are two way to do this. One after find the root of a component,
 we perform the chasing loop again to change the parent of sites in the path to root directly.
 The section way is that during chasing the root, we point the parent of a site to its grandparent.
-As we start doing this at the begining and each `union` operation will has a `find` operation first,
+As we start doing this at the beginning and each `union` operation will has a `find` operation first,
 so the depth of a tree of a connected component will grows so slow that nearly impossible to exceed 2.
 It is already very near to constant.
 
