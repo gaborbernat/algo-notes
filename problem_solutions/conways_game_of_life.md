@@ -3,27 +3,27 @@
 [Conway's Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life) is a famous
 simulation game in the history of computer science. Generally speaking, the rules
 of the game is quite simple, not to mention that in an interview you will usually meet
-a simplier version of it. But as to perfectly give the answer, more consideration should
+a simpler version of it. But as to perfectly give the answer, more consideration should
 be put on it. The space and time analysis is also very important.
 
 In fact, Conway's Game of Life usually appears in an interview as a measure of the knowledge
-of the matrices' reprensentation. In different situation, different types of representation of
-matrix or 2D array have differenet performance in time and space cost, which should be
+of the matrices representation. In different situation, different types of representation of
+matrix or 2D array have different performance in time and space cost, which should be
 well grasped.
 
 Here we talk about a simplified version of Conway's Game of Life. The rules of game is:
 
-1. Any live cells with fewer than **two** neighbours dies in the next generation
-2. Any live or empty cell with more or equal to **two** neighbours become live cell in the next
+1. Any live cells with fewer than **two** neighbors dies in the next generation
+2. Any live or empty cell with more or equal to **two** neighbors become live cell in the next
 generation.
 
-We will disscuss this problem step by step.
+We will discuss this problem step by step.
 
 ## Stage 1: small board
 
 If the board is small, we can iterate through every possible position of cell and count
-the neighbours of a possition to decide if there should be a live cell there. At first
-we can give a version of program that initiate a new board at the begining of every generation
+the neighbors of a position to decide if there should be a live cell there. At first
+we can give a version of program that initiate a new board at the beginning of every generation
 and copy the result back to the original.
 
 ```java
@@ -67,11 +67,11 @@ the algorithm is to expand the for loop in `countNeighbours` into eight conditio
 but this won't help a a lot. This elementary version is not acceptable for an interview.
 
 Both the time and space cost is $$O(N^2)$$, but it will actually spend a lot of time to allocation
-memery for the `newboard` in every generation. And when the board is very large, it is not even feasible.
+memory for the `newboard` in every generation. And when the board is very large, it is not even feasible.
 
 ## Step 2: in place generation
 
-We can come up an in place algorithm by modifying the cell by plus 2 to avoid the repeadly allocation.
+We can come up an in place algorithm by modifying the cell by plus 2 to avoid the recurring allocation.
 Thus we can distinguish the original positions of live cell and the positions should be live cell next generation.
 The program may looks like:
 
@@ -111,7 +111,7 @@ class GameOfLife {
     }
 ```
 
-Note that we will count the neighbours when the value is `1` or `3`, which means there is a life
+Note that we will count the neighbors when the value is `1` or `3`, which means there is a life
 cell originally at that position. A position has value `2` means it originally empty but will
 has a live cell the next generation. At last, both `2` and `3` means that position will has a
 live cell, so at last we traverse around all positions and marks these positions as `1`.
@@ -120,8 +120,8 @@ This solution is enough for the first version of answer. But it should be better
 the board is very large and even infinite.
 
 For this solution especially, if the live cells are sparse on the board. We will have a way
-to optimize under some programming languanges. These languanges has condition branch prediction
-and when check the count of neighbours of a position, it will usually assume the check result to be `true`.
+to optimize under some programming languages. These languages has condition branch prediction
+and when check the count of neighbors of a position, it will usually assume the check result to be `true`.
 But on a sparse board, the check usually returns `false`. So change the code to be like below might
 improves the performance on some machines with some languages:
 
@@ -141,7 +141,7 @@ change the representation of board.
 Just remember the motto above. Many times the interviewers is not examining your algorithm,
 they are examining your knowledge and understanding of data structure!
 
-And **DO NOT** limited your mind in a specified languange and the data structures it provides.
+And **DO NOT** limited your mind in a specified language and the data structures it provides.
 For example, Java does not have anything like a `Pair<L, R>` in C++ or `tuple` in Python,
 but you can always use a similar data structure as long as you can explain what it does.
 
@@ -172,7 +172,7 @@ The `hashCode` and `equals` function make sure the class can be correctly handle
 You are not necessary to write these code down, just tell the interviewee that there exists a similar
 data structure can act properly.
 
-Other than check every position in this solution and find those with more than one live neighbours, we
+Other than check every position in this solution and find those with more than one live neighbors, we
 iterate over current live cells and marks every cell it affects. Then we find all affects positions and
 put live cells there.
 
@@ -202,7 +202,7 @@ void nextGeneration(HashSet<Pair> liveCells) {
 
 The new solution is in fact more clear than the old one, neither to say it is faster and more space efficient
 especially when the live cells are sparse on the board. The time cost depends on the implementation of `Set`
-and `Map` is used. In our case, we assume the `HashSet` and `HashMap` can provide const time cost to insert
+and `Map` is used. In our case, we assume the `HashSet` and `HashMap` can provide constant time cost to insert
 and find an element, then the total time cost for a single generation is $$O(N)$$ where $$N$$ is the number
 of live cells on the board currently. The space cost is $$O(N)$$ too.
 
