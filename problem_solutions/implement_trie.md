@@ -63,8 +63,7 @@ public class Trie {
 ```
 
 Note that we save the character of a node in its parent in the `HashMap` instead of the node itself.
-So the `root` node do not represent any characters. If the charset is limited to letters, we can replace
+So the `root` node do not represent any characters. If the character-set is limited to letters, we can replace
 the `HashMap` in node with an array of `char` just like the Trie used in
 [Add and Search Word](/problem_solutions/add_and_search_word.md) 
-
 
