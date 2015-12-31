@@ -3,7 +3,7 @@
 Given a triangle by its vertices' coordinations $$A = (x_a, y_a)$$, $$B = (x_b, y_b)$$ and $$C = (x_c, y_c)$$.
 You are asked that if any point $$P = (x_p, y_p)$$ is in the triangle.
 
-There are serveral solutions to this problem. Most of them will make use of cross product operator of
+There are several solutions to this problem. Most of them will make use of cross product operator of
 two vector.
 
 Assume we have two vectors $$\vec{a}$$ and $$\vec{b}$$, the cross product of them is:
@@ -12,8 +12,8 @@ $$
 \vec{a}\times \vec{b} = |\vec{a}||\vec{b}|\sin \theta \vec{n}
 $$
 
-Where $$\sin \theta$$ is the angle between those two vectors and $$\vec{n}$$ is a vector in a third dimention
-that is perpendicular to both $$\vec{a}$$ and $$\vec{b}$$. If we use Cartesian coordinate to prepresent the two
+Where $$\sin \theta$$ is the angle between those two vectors and $$\vec{n}$$ is a vector in a third dimension
+that is perpendicular to both $$\vec{a}$$ and $$\vec{b}$$. If we use Cartesian coordinate to represent the two
 vectors as $$\vec{a} = (x_a, y_a)$$ and $$\vec{b} = (x_b, y_b)$$, we can get
 
 $$
