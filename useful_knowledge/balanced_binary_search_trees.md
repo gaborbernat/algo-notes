@@ -47,14 +47,14 @@ public class BST {
 ```
 
 Note in this implementation, we do not add codes for deletion which we will discuss later.
-And when we put new data, we always set pointer to left or right subtree and root to the results
+And when we put new data, we always set pointer to left or right sub-tree and root to the results
 of `put(Node root, Integer key, Integer val)` function to make the implementation more clear and simpler.
 
 Current implementation's defects are obvious. The search tree may become to deep or even degenerate to
-a chain which lead to linear searching and inserting time cost. Also it is volnerable to `StackOverFlowError`.
+a chain which lead to linear searching and inserting time cost. Also it is vulnerable to `StackOverFlowError`.
 To solve this question. we will introduce red-black tree.
 
-AAccording to Wikipedia, a red-black tree is a binary search tree that has an extra bit for its color
+According to Wikipedia, a red-black tree is a binary search tree that has an extra bit for its color
 which can be black or red. It has the following properties:
 
 1. The root is black
@@ -171,7 +171,7 @@ is reduced quite a lot.
 ## Delete a key
 
 Delete a key is a little complex even in preliminary binary search tree. We can first think about
-the way to delete the node with minimum or maximum key of subtree. We also use recursive way here.
+the way to delete the node with minimum or maximum key of sub-tree. We also use recursive way here.
 To find the lowest key, we follow on pointers to left child until we meet a node whose left node
 is `null`, then we remove that node. Following code shows how to do it:
 
@@ -185,8 +185,8 @@ private Node deleteMin(Node x) {
 
 The implementation of `deleteMax` is similar. Now we make use of this method to enables removing
 a node whose both two children are not null. The idea is simple. We replace the node with the node
-with minimum key in its right subtree and then use `deleteMin` to delete that min node.(Or we replace
-it with the node with maximum key in its left subtree)
+with minimum key in its right sub-tree and then use `deleteMin` to delete that min node.(Or we replace
+it with the node with maximum key in its left sub-tree)
 
 To achieve this, we may need another function to get the node with minimum key first. Here we use
 loop instead of recursion to do this.
@@ -222,16 +222,16 @@ private Node delete(Node x, Integer key) {
 ```
 
 The deletion in red-black tree is in similar idea but is more complex as we need to keep the balance
-of tree and subtrees while recursively deletion. For the details of this aspect please refer to
+of tree and sub-trees while recursively deletion. For the details of this aspect please refer to
 the book *Algorithm*.
 
 ## Select and Rank
 
-In any binary search tree, if we keep the size of subtree in each node, we will be going to perform
+In any binary search tree, if we keep the size of sub-tree in each node, we will be going to perform
 select and rank operation fast. The select operation returns the kth least key in the tree and
 rank operation returns a key's rank in the tree.
 
-The implememtation is like:
+The implementation is like:
 
 ```java
 private int size(Node x) {
