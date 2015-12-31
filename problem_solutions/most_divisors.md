@@ -11,8 +11,8 @@ prime divisors as possible.
 To find prime divisors, we uses sieve methods. To pick as many as prime divisors possible,
 we apply greedy strategy. We always pick the most least $$k$$ prime divisors until the product
 of all these divisors is larger than $$n$$. Then we start to find non-prime divisors.
-As any muliple of a prime number won't be prime, so we can choose to multiply one of our
+As any multiple of a prime number won't be prime, so we can choose to multiply one of our
 prime divisors to produce more divisor less than $$\sqrt(n)$$. We keep multiplying until
 the product exceed $$n$$. Obviously, to be able to multiply as many times as possible,
-we need to muliple the least divisor. So greedy strategy again, we always pick multiple of $$2$$
+we need to multiple the least divisor. So greedy strategy again, we always pick multiple of $$2$$
 as a non-prime divisor.
