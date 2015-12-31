@@ -25,7 +25,7 @@ to a good enough one for coding interview.
 ### Brute Force Solution
 
 At first we could use a so-called *Brute Force* solution. This solution examined all
-possible picking plan and find the one with maxium value. Recursion is a good way to
+possible picking plan and find the one with maximum value. Recursion is a good way to
 implement similar solution. For each object $$i$$, we consider two possible arrangement
 
 1. put it into the knapsack if possible
@@ -98,7 +98,7 @@ objects. When $$n$$ is very large, the program will even terminated with a Stack
 A recursion with pruning branches solution might be enough in many situations, but we want better,
 don't we?
 
-What if we abondon recursion and use loop to solve the problem? Yes, by doing this we will get
+What if we abandon recursion and use loop to solve the problem? Yes, by doing this we will get
 a classical DP solution.
 
 ## DP solution
